@@ -1,0 +1,395 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Invoke User Lambda",
+  "States": {
+    "Invoke User Lambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_User"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Choice"
+    },
+    "Choice": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.statusCode",
+          "NumericEquals": 200,
+          "Next": "Raw To Bronze Cluster"
+        },
+        {
+          "Not": {
+            "Variable": "$.statusCode",
+            "NumericEquals": 200
+          },
+          "Next": "API FAIL MAIL"
+        }
+      ]
+    },
+    "API FAIL MAIL": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_SendEmail",
+        "Payload": {
+          "message": "API Failure",
+          "subject": "User :: API has been failured.",
+          "recevier": "laxman.prajapati@inferenz.ai"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "API Fail"
+    },
+    "Raw To Bronze Cluster": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:createCluster.sync",
+      "Parameters": {
+        "Name": "User",
+        "ServiceRole": "arn:aws:iam::837550516418:role/RL_InternalProject",
+        "JobFlowRole": "arn:aws:iam::837550516418:instance-profile/AmazonEMR-InstanceProfile-20240327T151728",
+        "ReleaseLabel": "emr-7.0.0",
+        "Applications": [
+          {
+            "Name": "Spark"
+          }
+        ],
+        "LogUri": "s3://aws-logs-837550516418-us-west-2/elasticmapreduce/",
+        "VisibleToAllUsers": true,
+        "Instances": {
+          "KeepJobFlowAliveWhenNoSteps": true,
+          "InstanceFleets": [
+            {
+              "InstanceFleetType": "MASTER",
+              "Name": "Master",
+              "TargetOnDemandCapacity": 1,
+              "InstanceTypeConfigs": [
+                {
+                  "InstanceType": "m5.xlarge"
+                }
+              ]
+            }
+          ]
+        },
+        "BootstrapActions": [
+          {
+            "Name": "boto3",
+            "ScriptBootstrapAction": {
+              "Path": "s3://internalpoc2024/data-cart/script/bootstrap.sh"
+            }
+          }
+        ]
+      },
+      "Next": "EMR AddStep (Raw To Bronze Cluster)",
+      "ResultSelector": {
+        "ClusterId.$": "$.ClusterId"
+      },
+      "ResultPath": "$.ClusterId"
+    },
+    "EMR AddStep (Raw To Bronze Cluster)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:addStep.sync",
+      "Parameters": {
+        "ClusterId.$": "$.ClusterId.ClusterId",
+        "Step": {
+          "Name": "Raw To Bronze",
+          "HadoopJarStep": {
+            "Jar": "command-runner.jar",
+            "Args.$": "States.Array('spark-submit','s3://internalpoc2024/data-cart/script/user/raw_to_bronze_user.py')"
+          }
+        }
+      },
+      "Next": "EMR TerminateCluster (Raw To Bronze Cluster)",
+      "ResultPath": null
+    },
+    "EMR TerminateCluster (Raw To Bronze Cluster)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:terminateCluster",
+      "Parameters": {
+        "ClusterId.$": "$.ClusterId.ClusterId"
+      },
+      "Next": "Check File In Bronze Layer"
+    },
+    "Check File In Bronze Layer": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_isFileExists",
+        "Payload": {
+          "bucket": "internalpoc2024",
+          "file_name": "user_daily_data",
+          "folder": "data-cart/bronze/user/input/",
+          "file_flag": false,
+          "date_flag": true
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Check Lambda Result"
+    },
+    "Check Lambda Result": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Not": {
+            "Variable": "$.StatusCode",
+            "NumericEquals": 200
+          },
+          "Next": "Send Error Mail"
+        },
+        {
+          "Variable": "$.StatusCode",
+          "NumericEquals": 200,
+          "Next": "EMR CreateCluster (Bronze To Silver Cluster)"
+        }
+      ]
+    },
+    "EMR CreateCluster (Bronze To Silver Cluster)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:createCluster.sync",
+      "Parameters": {
+        "Name": "User",
+        "ServiceRole": "arn:aws:iam::837550516418:role/RL_InternalProject",
+        "JobFlowRole": "arn:aws:iam::837550516418:instance-profile/AmazonEMR-InstanceProfile-20240327T151728",
+        "ReleaseLabel": "emr-7.0.0",
+        "Applications": [
+          {
+            "Name": "Spark"
+          }
+        ],
+        "LogUri": "s3://aws-logs-837550516418-us-west-2/elasticmapreduce/",
+        "VisibleToAllUsers": true,
+        "Instances": {
+          "KeepJobFlowAliveWhenNoSteps": true,
+          "InstanceFleets": [
+            {
+              "InstanceFleetType": "MASTER",
+              "Name": "Master",
+              "TargetOnDemandCapacity": 1,
+              "InstanceTypeConfigs": [
+                {
+                  "InstanceType": "m5.xlarge"
+                }
+              ]
+            }
+          ]
+        },
+        "BootstrapActions": [
+          {
+            "Name": "boto3",
+            "ScriptBootstrapAction": {
+              "Path": "s3://internalpoc2024/data-cart/script/bootstrap.sh"
+            }
+          }
+        ]
+      },
+      "Next": "EMR AddStep (Bronze To Silver Cluster)",
+      "ResultSelector": {
+        "ClusterId.$": "$.ClusterId"
+      },
+      "ResultPath": "$.ClusterId"
+    },
+    "EMR AddStep (Bronze To Silver Cluster)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:addStep.sync",
+      "Parameters": {
+        "ClusterId.$": "$.ClusterId.ClusterId",
+        "Step": {
+          "Name": "Bronze To Silver",
+          "HadoopJarStep": {
+            "Jar": "command-runner.jar",
+            "Args.$": "States.Array('spark-submit','s3://internalpoc2024/data-cart/script/user/bronze_to_silver_user.py')"
+          }
+        }
+      },
+      "Next": "EMR TerminateCluster (Bronze To Silver Cluster)",
+      "ResultPath": null
+    },
+    "EMR TerminateCluster (Bronze To Silver Cluster)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::elasticmapreduce:terminateCluster",
+      "Parameters": {
+        "ClusterId.$": "$.ClusterId.ClusterId"
+      },
+      "Next": "Check File In Silver Layer"
+    },
+    "Check File In Silver Layer": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_isFileExists",
+        "Payload": {
+          "bucket": "internalpoc2024",
+          "file_name": "",
+          "folder": "data-cart/silver/user",
+          "file_flag": false,
+          "date_flag": false
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Check Lambda Result (1)"
+    },
+    "Check Lambda Result (1)": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Not": {
+            "Variable": "$.StatusCode",
+            "NumericEquals": 200
+          },
+          "Next": "Send Error Mail (1)"
+        },
+        {
+          "Variable": "$.StatusCode",
+          "NumericEquals": 200,
+          "Next": "Send Error Mail (2)"
+        }
+      ]
+    },
+    "Send Error Mail (2)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_SendEmail",
+        "Payload": {
+          "message": "Successfully Completed",
+          "subject": "User :: All operations has been successfully completed",
+          "recevier": "laxman.prajapati@inferenz.ai"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Success"
+    },
+    "Send Error Mail (1)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "aarn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_SendEmail",
+        "Payload": {
+          "message": "File Not Exists In Silver Layer",
+          "subject": "User :: Failure Occured In Bronze To Silver Layer",
+          "recevier": "laxman.prajapati@inferenz.ai"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Error In Bronze To Silver Layer"
+    },
+    "Error In Bronze To Silver Layer": {
+      "Type": "Fail"
+    },
+    "Send Error Mail": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:837550516418:function:LY_DataCart_SendEmail",
+        "Payload": {
+          "message": "File Not Exists In Bronze Layer",
+          "subject": "User:: Failure Occured In Raw To Bronze Layer",
+          "recevier": "laxman.prajapati@inferenz.ai"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Error In Raw To Bronze Layer"
+    },
+    "Error In Raw To Bronze Layer": {
+      "Type": "Fail"
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "API Fail": {
+      "Type": "Fail"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Parallel",
+  "States": {
+    "Parallel": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "User Step Function",
+          "States": {
+            "User Step Function": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::states:startExecution.sync:2",
+              "Parameters": {
+                "StateMachineArn": "arn:aws:states:us-west-2:837550516418:stateMachine:UserFlow (Change)",
+                "Input": {
+                  "StatePayload": "Hello from Step Functions!",
+                  "AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID.$": "$$.Execution.Id"
+                }
+              },
+              "Next": "Success"
+            },
+            "Success": {
+              "Type": "Succeed"
+            }
+          }
+        },
+        {
+          "StartAt": "Product Step Function",
+          "States": {
+            "Product Step Function": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::states:startExecution.sync:2",
+              "Parameters": {
+                "StateMachineArn": "arn:aws:states:us-west-2:837550516418:stateMachine:ProductFlow (Change)",
+                "Input": {
+                  "StatePayload": "Hello from Step Functions!",
+                  "AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID.$": "$$.Execution.Id"
+                }
+              },
+              "Next": "Cart Step Function"
+            },
+            "Cart Step Function": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::states:startExecution.sync:2",
+              "Parameters": {
+                "StateMachineArn": "arn:aws:states:us-west-2:837550516418:stateMachine:CartFlow (Change)",
+                "Input": {
+                  "StatePayload": "Hello from Step Functions!",
+                  "AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID.$": "$$.Execution.Id"
+                }
+              },
+              "Next": "Success (1)"
+            },
+            "Success (1)": {
+              "Type": "Succeed"
+            }
+          }
+        }
+      ],
+      "Next": "Success (2)"
+    },
+    "Success (2)": {
+      "Type": "Succeed"
+    }
+  }
+}

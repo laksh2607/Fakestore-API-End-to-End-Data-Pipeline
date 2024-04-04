@@ -1,0 +1,10 @@
+
+step function emr step parameter:
+
+,'{\"Date\":\"2024-03-24\"}'
+
+
+lambda parameter:
+{
+  "date": "2024-03-24"
+}
