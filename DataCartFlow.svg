@@ -1,0 +1,231 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" class="sc-dJiZtA bfnavJ graph" data-testid="graph" role="img" aria-labelledby="polymath-graph-title" width="582" height="648"><title id="polymath-graph-title">Workflow Studio State Machine Graph</title><g transform="translate(12,12)" class="new-look-graph"><g class="nodes"><g class="node-container" transform="translate(279,22)"><g><circle class="sc-krNlru dsfQBY shape" r="22"/><text class="sc-iMTnTL dLALq label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Start</tspan></text></g></g><g class="node-container" transform="translate(279,270)"><g class="sc-bypJrT cIXLAr node state container Parallel" data-testid="graph-Parallel" data-state-id="Parallel" data-state-type="Parallel"><g class="new-look-state-node "><g class="bounding-box" transform="translate(0,5)"><rect class="sc-jaXxmE hhnbpl shape" rx="7" ry="7" x="-279" y="-191" width="558" height="377"/><g class="content" transform="translate(-279,-191)"><g class="branch" transform="translate(20,89)"><g class="branchInsertArea" data-insertion-index="0" data-parent-state-id="Parallel" id="Parallel:0" x="-20" y="0" width="20" height="268"><rect x="-20" y="0" width="20" height="268" stroke="none" fill="none"/><path d="M-10,0 l0,268" stroke="none" fill="none"/></g><g transform=""><g class="nodes"><g class="node-container" transform="translate(124.5,24.5)"><g class="sc-bypJrT cIXLAr node state Task" data-testid="graph-User Step Function" data-state-id="User Step Function" data-state-type="Task"><g class="new-look-state-node "><rect x="-124.5" y="-24.5" width="249" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-124.5,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-108.5,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-service-states" aria-hidden="true"><title>Step Functions</title></use></g><g class="text-lines" transform="translate(-52.5,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Step Functions: StartExecution</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">User Step Function</tspan></text></g></g></g></g><g class="node-container" transform="translate(124.5,108.5)"><g class="sc-bypJrT cIXLAr node state Succeed" data-testid="graph-Success" data-state-id="Success" data-state-type="Succeed"><g class="new-look-state-node "><rect x="-120" y="-24.5" width="240" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-120,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-104,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-flow-succeed"/></g><g class="text-lines" transform="translate(-48,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Succeed state</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Success</tspan></text></g></g></g></g><g class="node-container" transform="translate(124.5,176)"><g><circle class="sc-hwdzOV jdyuLM shape" r="8"/></g></g></g><g class="edges"><g class="sc-ddjGPC hZuboL edge"><path id="state-User Step Function:state-Success:normal" d="M124.5,49L124.5,51.916666666666664C124.5,54.833333333333336,124.5,60.666666666666664,124.5,66.5C124.5,72.33333333333333,124.5,78.16666666666667,124.5,81.08333333333333L124.5,84" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-ddjGPC hZuboL edge"><path id="state-Success:end:normal" d="M124.5,133L124.5,135.91666666666666C124.5,138.83333333333334,124.5,144.66666666666666,124.5,150.5C124.5,156.33333333333334,124.5,162.16666666666666,124.5,165.08333333333334L124.5,168" marker-end="url(#arrowhead)" fill="none"/></g></g></g><g class="branchInsertArea" data-insertion-index="1" data-parent-state-id="Parallel" id="Parallel:1" x="249" y="0" width="20" height="268"><rect x="249" y="0" width="20" height="268" stroke="none" fill="none"/><path d="M259,0 l0,268" stroke="none" fill="none"/></g></g><g class="branch" transform="translate(289,89)"><g transform=""><g class="nodes"><g class="node-container" transform="translate(124.5,24.5)"><g class="sc-bypJrT cIXLAr node state Task" data-testid="graph-Product Step Function" data-state-id="Product Step Function" data-state-type="Task"><g class="new-look-state-node "><rect x="-124.5" y="-24.5" width="249" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-124.5,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-108.5,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-service-states" aria-hidden="true"><title>Step Functions</title></use></g><g class="text-lines" transform="translate(-52.5,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Step Functions: StartExecution</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Product Step Function</tspan></text></g></g></g></g><g class="node-container" transform="translate(124.5,108.5)"><g class="sc-bypJrT cIXLAr node state Task" data-testid="graph-Cart Step Function" data-state-id="Cart Step Function" data-state-type="Task"><g class="new-look-state-node "><rect x="-124.5" y="-24.5" width="249" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-124.5,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-108.5,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-service-states" aria-hidden="true"><title>Step Functions</title></use></g><g class="text-lines" transform="translate(-52.5,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Step Functions: StartExecution</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Cart Step Function</tspan></text></g></g></g></g><g class="node-container" transform="translate(124.5,192.5)"><g class="sc-bypJrT cIXLAr node state Succeed" data-testid="graph-Success (1)" data-state-id="Success (1)" data-state-type="Succeed"><g class="new-look-state-node "><rect x="-120" y="-24.5" width="240" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-120,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-104,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-flow-succeed"/></g><g class="text-lines" transform="translate(-48,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Succeed state</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Success (1)</tspan></text></g></g></g></g><g class="node-container" transform="translate(124.5,260)"><g><circle class="sc-hwdzOV jdyuLM shape" r="8"/></g></g></g><g class="edges"><g class="sc-ddjGPC hZuboL edge"><path id="state-Product Step Function:state-Cart Step Function:normal" d="M124.5,49L124.5,51.916666666666664C124.5,54.833333333333336,124.5,60.666666666666664,124.5,66.5C124.5,72.33333333333333,124.5,78.16666666666667,124.5,81.08333333333333L124.5,84" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-ddjGPC hZuboL edge"><path id="state-Cart Step Function:state-Success (1):normal" d="M124.5,133L124.5,135.91666666666666C124.5,138.83333333333334,124.5,144.66666666666666,124.5,150.5C124.5,156.33333333333334,124.5,162.16666666666666,124.5,165.08333333333334L124.5,168" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-ddjGPC hZuboL edge"><path id="state-Success (1):end:normal" d="M124.5,217L124.5,219.91666666666666C124.5,222.83333333333334,124.5,228.66666666666666,124.5,234.5C124.5,240.33333333333334,124.5,246.16666666666666,124.5,249.08333333333334L124.5,252" marker-end="url(#arrowhead)" fill="none"/></g></g></g><g class="branchInsertArea" data-insertion-index="2" data-parent-state-id="Parallel" id="Parallel:2" x="249" y="0" width="20" height="268"><rect x="249" y="0" width="20" height="268" stroke="none" fill="none"/><path d="M259,0 l0,268" stroke="none" fill="none"/></g></g><g class="sc-ddjGPC hZuboL"><path id="Parallel-User Step Function" class="path starting-connection" d="M279,44L279,47.75C279,51.5,279,59,256.5833333333333,62.75C234.16666666666666,66.5,189.33333333333334,66.5,166.91666666666666,70.25C144.5,74,144.5,81.5,144.5,85.25L144.5,89" fill="none"/></g><g class="sc-ddjGPC hZuboL"><path id="Parallel-Product Step Function" class="path starting-connection" d="M279,44L279,47.75C279,51.5,279,59,301.4166666666667,62.75C323.8333333333333,66.5,368.6666666666667,66.5,391.0833333333333,70.25C413.5,74,413.5,81.5,413.5,85.25L413.5,89" fill="none"/></g></g></g><g class="new-look-state-node "><rect x="-120" y="-191" width="240" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-120,-191)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-104,-190.5)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-flow-parallel"/></g><g class="text-lines" transform="translate(-48,-191)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Parallel state</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Parallel</tspan></text></g></g></g></g></g><g class="node-container" transform="translate(279,520.5)"><g class="sc-bypJrT cIXLAr node state Succeed" data-testid="graph-Success (2)" data-state-id="Success (2)" data-state-type="Succeed"><g class="new-look-state-node "><rect x="-120" y="-24.5" width="240" height="49" rx="3" ry="3"/><g class="handle" transform="translate(-120,-24.5)"><path d="M5,16 L5,34 M8,16 L8,34"/></g><g class="icon" transform="translate(-104,-24)"><rect fill="var(--color-background-container-header-ni4jv3, #fafafa)" x="0.0361026108" y="0.0181291967" width="48" height="48"/><line x1="47.5" y1="0.49122807" x2="47.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><line x1="0.5" y1="0.49122807" x2="0.5" y2="47.5" stroke="var(--color-board-placeholder-active-ekuw58, #d5dbdb)" stroke-linecap="square"/><use href="#icon-flow-succeed"/></g><g class="text-lines" transform="translate(-48,-24.5)"><text transform="translate(0,17)" class="line1"><tspan xml:space="preserve" text-anchor="start">Succeed state</tspan></text><text transform="translate(0,35.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Success (2)</tspan></text></g></g></g></g><g class="node-container" transform="translate(279,602)"><g><circle class="sc-krNlru dsfQBY shape" r="22"/><text class="sc-iMTnTL dLALq label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">End</tspan></text></g></g></g><g class="edges"><g class="sc-ddjGPC hZuboL edge"><path id="state-Parallel:state-Success (2):normal" d="M279,461L279,463.9166666666667C279,466.8333333333333,279,472.6666666666667,279,478.5C279,484.3333333333333,279,490.1666666666667,279,493.0833333333333L279,496" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-ddjGPC hZuboL edge"><path id="start:state-Parallel" d="M279,44L279,46.916666666666664C279,49.833333333333336,279,55.666666666666664,279,61.5C279,67.33333333333333,279,73.16666666666667,279,76.08333333333333L279,79" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-ddjGPC hZuboL edge"><path id="state-Success (2):end:normal" d="M279,545L279,547.9166666666666C279,550.8333333333334,279,556.6666666666666,279,562.5C279,568.3333333333334,279,574.1666666666666,279,577.0833333333334L279,580" marker-end="url(#arrowhead)" fill="none"/></g></g><defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 8 3, 0 6"/></marker><marker id="highlighted-arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 6 2, 0 4"/></marker><marker id="error-arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 6 2, 0 4"/></marker><marker id="large-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 10 4, 0 8"/></marker><marker id="large-highlighted-arrowhead" markerWidth="5.5" markerHeight="4" refX="4.5" refY="2" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 5.5 2, 0 4"/></marker><marker id="large-error-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" class="sc-jMakVo fZTkKH"><polygon points="0 0, 10 4, 0 8"/></marker><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-orange"><stop stop-color="#C8511B" offset="0%"/><stop stop-color="#FF9900" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-turquoise"><stop stop-color="#055F4E" offset="0%"/><stop stop-color="#56C0A7" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-blue"><stop stop-color="#2E27AD" offset="0%"/><stop stop-color="#527FFF" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-pink"><stop stop-color="#B0084D" offset="0%"/><stop stop-color="#FF4F8B" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-red"><stop stop-color="#BD0816" offset="0%"/><stop stop-color="#FF5252" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-green"><stop stop-color="#1B660F" offset="0%"/><stop stop-color="#6CAE3E" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-purple"><stop stop-color="#4D27A8" offset="0%"/><stop stop-color="#A166FF" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-grey"><stop stop-color="#DCDCDC" offset="0%"/><stop stop-color="#F6F5F7" offset="100%"/></linearGradient>,<linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-ag"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-athena"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-emr"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-glue"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-sns"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-states"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-generic"><stop stop-color="#ccc" offset="0%"/><stop stop-color="#ddd" offset="100%"/></linearGradient><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-flow-parallel"><g transform="translate(7.794758, 8.750000)" fill="#0073BB" fill-rule="nonzero"><path d="M16.199562,30.9615157 L16.1088907,30.9567289 L16.0428411,30.9462621 L15.9289205,30.9134016 L15.8581395,30.8824655 L15.747534,30.8144639 L15.6634156,30.7418457 L12.1634156,27.2418457 C11.8705224,26.9489525 11.8705224,26.4740788 12.1634156,26.1811856 C12.4296821,25.914919 12.8463458,25.890713 13.1399573,26.1085674 L13.2240758,26.1811856 L15.455,28.412 L15.455,12.999 L4.95524179,12.999 L4.955,28.446 L7.21966991,26.1811856 L7.30378835,26.1085674 C7.59739984,25.890713 8.01406352,25.914919 8.28033009,26.1811856 C8.54659665,26.4474521 8.5708027,26.8641158 8.35294824,27.1577273 L8.28033009,27.2418457 L4.78033009,30.7418457 L4.69621165,30.8144639 L4.689,30.818 C4.66089447,30.8406686 4.6237969,30.8633711 4.58539483,30.8825712 L4.50825575,30.9158403 L4.44163507,30.9367462 L4.36774058,30.9522701 L4.27779844,30.9610057 L4.22212648,30.9610007 L4.09909543,30.9462621 L3.99176083,30.9158467 L3.9143938,30.8824655 L3.82554184,30.8300094 L3.80378835,30.8144639 L3.71966991,30.7418457 L0.219669914,27.2418457 C-0.0732233047,26.9489525 -0.0732233047,26.4740788 0.219669914,26.1811856 C0.485936477,25.914919 0.902600159,25.890713 1.19621165,26.1085674 L1.28033009,26.1811856 L3.455,28.356 L3.45524179,12.25 C3.45524179,11.8703042 3.73739568,11.556509 4.10347124,11.5068466 L4.20524179,11.5 L15.455,11.502 L15.4552418,-1.42108547e-13 L16.9552418,-1.42108547e-13 L16.955,11.495 L28.1555171,11.5 C28.5351143,11.5001394 28.8487603,11.7822674 28.8983985,12.1482549 L28.9052418,12.25 L28.905,28.44 L31.1641955,26.1811856 L31.2483139,26.1085674 C31.5419254,25.890713 31.9585891,25.914919 32.2248557,26.1811856 C32.4911222,26.4474521 32.5153283,26.8641158 32.2974738,27.1577273 L32.2248557,27.2418457 L28.7248557,30.7418457 C28.6845386,30.7821628 28.6407734,30.8169302 28.5945094,30.8461478 L28.5328469,30.8811 L28.4268027,30.9248089 L28.3112733,30.9524264 L28.1887092,30.9615157 L28.1087231,30.9566189 L28.0352714,30.9445058 L27.9277401,30.9126603 L27.8920604,30.8980433 L27.8568141,30.8814079 C27.8351606,30.8704626 27.8145136,30.8587698 27.7943421,30.8460217 C27.7482777,30.8169302 27.7045126,30.7821628 27.6641955,30.7418457 L24.1641955,27.2418457 C23.8713023,26.9489525 23.8713023,26.4740788 24.1641955,26.1811856 C24.4304621,25.914919 24.8471258,25.890713 25.1407372,26.1085674 L25.2248557,26.1811856 L27.405,28.362 L27.4052418,12.999 L16.955,12.992 L16.955,28.389 L19.1634156,26.1811856 L19.247534,26.1085674 C19.5411455,25.890713 19.9578092,25.914919 20.2240758,26.1811856 C20.4903423,26.4474521 20.5145484,26.8641158 20.2966939,27.1577273 L20.2240758,27.2418457 L16.7240758,30.7418457 L16.6399573,30.8144639 L16.636,30.816 L16.589136,30.8490255 L16.5330413,30.8806066 L16.4260228,30.9248089 L16.3532729,30.9444467 L16.2795333,30.9566255 L16.199562,30.9615157 Z" fill="false"/></g></g><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-flow-succeed"><g transform="translate(11.250000, 12.250000)" fill="#2AB512" fill-rule="nonzero"><path d="M12.75,0 C5.70836944,0 0,5.70836944 0,12.75 C0,19.7916306 5.70836944,25.5 12.75,25.5 C19.7916306,25.5 25.5,19.7916306 25.5,12.75 C25.5,5.70836944 19.7916306,0 12.75,0 Z M12.75,1.5 C18.9632034,1.5 24,6.53679656 24,12.75 C24,18.9632034 18.9632034,24 12.75,24 C6.53679656,24 1.5,18.9632034 1.5,12.75 C1.5,6.53679656 6.53679656,1.5 12.75,1.5 Z"/><path d="M17.482151,9.3912361 C17.7750442,9.09834288 18.2499179,9.09834288 18.5428111,9.3912361 C18.8090777,9.65750266 18.8332838,10.0741663 18.6154293,10.3677778 L18.5428111,10.4518963 L11.1581958,17.8365117 C10.9013427,18.0933647 10.5030038,18.1258243 10.2104294,17.9293959 L10.1171609,17.8554362 L6.98253225,14.9408143 C6.67918728,14.6587599 6.66192789,14.1841999 6.94398232,13.8808549 C7.20039544,13.6050868 7.61590405,13.565753 7.91723953,13.7727921 L8.0039417,13.842305 L10.608,16.264 L17.482151,9.3912361 Z"/></g></g><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-service-states"><polygon fill="url(#gradient-states)" fill-rule="nonzero" points="0 0 48 0 48 48 0 48"/><g transform="translate(7.714286, 7.714286)" fill="#FFFFFF"><path d="M26.9059233,12.3928716 L26.9059233,8.47912299 C26.9059233,8.11887237 26.6121138,7.82683155 26.2496813,7.82683155 L17.0622929,7.82683155 L17.0622929,6.45701954 C18.7127174,6.12215613 19.8399485,4.59949006 19.6706454,2.9336515 C19.5013424,1.26781294 18.0905083,0 16.4060508,0 C14.7215933,0 13.3107593,1.26781294 13.1414562,2.9336515 C12.9721531,4.59949006 14.0993842,6.12215613 15.7498088,6.45701954 L15.7498088,7.82683155 L6.56242033,7.82683155 C6.19998786,7.82683155 5.9061783,8.11887237 5.9061783,8.47912299 L5.9061783,11.0882887 L0.656242033,11.0882887 C0.293809566,11.0882887 0,11.3803295 0,11.7405802 L0,15.0020373 C0,15.362288 0.293809566,15.6543288 0.656242033,15.6543288 L5.9061783,15.6543288 L5.9061783,16.9589116 L0.656242033,16.9589116 C0.293809566,16.9589116 0,17.2509525 0,17.6112031 L0,20.8726603 C0,21.2329109 0.293809566,21.5249517 0.656242033,21.5249517 L5.9061783,21.5249517 L5.9061783,24.1341174 C5.9061783,24.494368 6.19998786,24.7864089 6.56242033,24.7864089 L15.7498088,24.7864089 L15.7498088,26.1562209 C14.0993842,26.4910843 12.9721531,28.0137504 13.1414562,29.6795889 C13.3107593,31.3454275 14.7215933,32.6132404 16.4060508,32.6132404 C18.0905083,32.6132404 19.5013424,31.3454275 19.6706454,29.6795889 C19.8399485,28.0137504 18.7127174,26.4910843 17.0622929,26.1562209 L17.0622929,24.7864089 L26.2496813,24.7864089 C26.6121138,24.7864089 26.9059233,24.494368 26.9059233,24.1341174 L26.9059233,20.8726603 L25.5934393,20.8726603 L25.5934393,23.481826 L7.21866236,23.481826 L7.21866236,21.5249517 L12.4685986,21.5249517 C12.8310311,21.5249517 13.1248407,21.2329109 13.1248407,20.8726603 L13.1248407,17.6112031 C13.1248407,17.2509525 12.8310311,16.9589116 12.4685986,16.9589116 L7.21866236,16.9589116 L7.21866236,15.6543288 L12.4685986,15.6543288 C12.8310311,15.6543288 13.1248407,15.362288 13.1248407,15.0020373 L13.1248407,11.7405802 C13.1248407,11.3803295 12.8310311,11.0882887 12.4685986,11.0882887 L7.21866236,11.0882887 L7.21866236,9.13141442 L25.5934393,9.13141442 L25.5934393,12.3928716 L26.9059233,12.3928716 Z M18.3747769,29.3524489 C18.3747769,30.4332008 17.4933482,31.3093232 16.4060508,31.3093232 C15.3187534,31.3093232 14.4373247,30.4332008 14.4373247,29.3524489 C14.4373247,28.2716971 15.3187534,27.3955746 16.4060508,27.3955746 C17.4933482,27.3955746 18.3747769,28.2716971 18.3747769,29.3524489 L18.3747769,29.3524489 Z M11.8123566,18.2634945 L11.8123566,20.2203688 L1.31248407,20.2203688 L1.31248407,18.2634945 L11.8123566,18.2634945 Z M11.8123566,12.3928716 L11.8123566,14.3497459 L1.31248407,14.3497459 L1.31248407,12.3928716 L11.8123566,12.3928716 Z M14.4373247,3.2607915 C14.4373247,2.18003967 15.3187534,1.3039172 16.4060508,1.3039172 C17.4933482,1.3039172 18.3747769,2.18003967 18.3747769,3.2607915 C18.3747769,4.34154334 17.4933482,5.21766581 16.4060508,5.21766581 C15.3187534,5.21766581 14.4373247,4.34154334 14.4373247,3.2607915 Z"/><path d="M32.7614824,13.0452962 L19.4197022,13.0452962 C19.0512792,13.0452962 18.7526132,13.3292132 18.7526132,13.6794425 L18.7526132,18.1184669 C18.7526132,18.4686963 19.0512792,18.7526132 19.4197022,18.7526132 L32.7614824,18.7526132 C33.1299055,18.7526132 33.4285714,18.4686963 33.4285714,18.1184669 L33.4285714,13.6794425 C33.4285714,13.3292132 33.1299055,13.0452962 32.7614824,13.0452962 Z M32.0943934,17.4843206 L20.0867913,17.4843206 L20.0867913,14.3135889 L32.0943934,14.3135889 L32.0943934,17.4843206 Z"/></g></g></defs></g><style data-styled="true" data-styled-version="5.3.11">.cIXLAr{cursor:pointer;}/*!sc*/
+data-styled.g64[id="sc-bypJrT"]{content:"cIXLAr,"}/*!sc*/
+.hZuboL{stroke:#555;background-color:#555;stroke-width:1px;}/*!sc*/
+data-styled.g65[id="sc-ddjGPC"]{content:"hZuboL,"}/*!sc*/
+.fZTkKH{fill:var(--color-text-form-secondary-rh78tu,#687078);}/*!sc*/
+data-styled.g81[id="sc-jMakVo"]{content:"fZTkKH,"}/*!sc*/
+.dLALq{font-weight:400;font-size:12px;line-height:16px;font-family:Amazon Ember,Arial,Roboto,Arial,sans-serif;text-shadow:none;fill:var(--color-text-button-primary-default-ljg1xz,#16191f);}/*!sc*/
+data-styled.g82[id="sc-iMTnTL"]{content:"dLALq,"}/*!sc*/
+.dsfQBY{fill:#fff9cc;stroke:var(--color-text-form-secondary-rh78tu,#687078);stroke-width:0.6px;}/*!sc*/
+data-styled.g83[id="sc-krNlru"]{content:"dsfQBY,"}/*!sc*/
+.jdyuLM{fill:#fff9cc;stroke:var(--color-text-form-secondary-rh78tu,#687078);stroke-width:0.6px;}/*!sc*/
+data-styled.g84[id="sc-hwdzOV"]{content:"jdyuLM,"}/*!sc*/
+.hhnbpl{stroke:var(--color-border-control-default-8uhjl0,#687078);stroke-width:1px;fill:var(--color-background-container-content-sgemmm,#ffffff);opacity:0.5;}/*!sc*/
+.node &gt; .new-look-state-node.has-errors &gt; .bounding-box &gt; .sc-jaXxmE{stroke:var(--color-border-status-error-xj05xm,#d13212);fill:var(--color-background-status-error-oemu7d,#fdf3f1);}/*!sc*/
+.selected &gt; .node &gt; .new-look-state-node &gt; .bounding-box &gt; .sc-jaXxmE{stroke:var(--color-border-status-info-q9np44,#0073bb);fill:var(--color-background-status-info-pgxhez,#f1faff);}/*!sc*/
+.selected &gt; .node &gt; .new-look-state-node.has-errors &gt; .bounding-box &gt; .sc-jaXxmE{stroke:var(--color-border-status-error-xj05xm,#d13212);fill:#fde0da;}/*!sc*/
+data-styled.g85[id="sc-jaXxmE"]{content:"hhnbpl,"}/*!sc*/
+</style><style>
+.new-look-state-node &gt; rect:first-of-type {
+  stroke: #687078;
+  stroke-width: 1px;
+  fill: #FFFFFF;
+}
+
+.new-look-state-node .error-icon circle {
+ stroke-linejoin: round;
+}
+
+.new-look-state-node .error-icon circle, .new-look-state-node .error-icon path {
+ stroke: var(--color-border-status-error-xj05xm, #d13212);
+ fill: none;
+ stroke-width: 2px;
+}
+
+.new-look-state-node.has-errors &gt; rect:first-of-type {
+ stroke: var(--color-border-status-error-xj05xm, #d13212);
+ fill: var(--color-background-status-error-oemu7d, #fdf3f1);
+}
+
+.new-look-state-node.has-errors &gt; .bounding-box &gt; .new-look-state-node-sub &gt; rect {
+  stroke: var(--color-border-status-error-xj05xm, #d13212);
+  fill: var(--color-background-status-error-oemu7d, #fdf3f1);
+}
+
+.new-look-state-node .handle path {
+  stroke: var(--color-border-dropdown-item-hover-gqjku2, #879596);
+  stroke-width: 1px;
+  fill: none;
+}
+
+.new-look-state-node {
+  font-weight: 400;
+  font-family: Amazon Ember, Arial, Roboto, Arial, sans-serif;
+  text-shadow: none;
+}
+
+.new-look-state-node .line1 {
+  fill: #687078;
+  font-size: 12px;
+}
+
+.new-look-state-node .line2 {
+  fill: #16191f;
+}
+
+.selected.node &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .bounding-box &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; .bounding-box &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .bounding-box &gt; .new-look-state-node-sub &gt; rect
+ {
+  stroke: var(--color-border-status-info-q9np44, #0073bb);
+  fill: var(--color-background-status-info-pgxhez, #f1faff);
+  stroke-width: 1px;
+}
+
+.new-look-state-node-sub .item-source.not-specified {
+  height: 15px;
+  color: #687078;
+  font-family: "Amazon Ember";
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 16px;
+  font-weight: 400;
+}
+.new-look-state-node-sub .item-source .item-source_name{
+  font-weight: 600;
+}
+.new-look-state-node-sub .item-source.not-specified .item-source_name{
+  font-weight: 400;
+}
+
+.new-look-state-node-sub .item-source.not-specified {
+  font-style: italic;
+}
+
+.new-look-state-node-sub &gt; rect,
+.new-look-state-node &gt; .bounding-box &gt; rect {
+  stroke: var(--color-border-control-default-8uhjl0, #687078);
+  fill: #ffffff;
+}
+
+.new-look-graph .drag-source {
+  opacity: 0.2;
+}
+
+.new-look-graph .edge, .new-look-graph path.starting-connection {
+  stroke-width: 1px;
+  stroke: var(--color-text-form-secondary-rh78tu, #687078);
+  marker-end: url(#large-arrowhead);
+}
+
+.new-look-graph .edge-label {
+  cursor: pointer;
+}
+
+.new-look-graph .edge-label rect {
+  stroke-width: 1px;
+  stroke: var(--color-border-control-default-8uhjl0, #687078);
+  fill: #fafafa;
+}
+
+.new-look-graph .edge-label.selected rect {
+  stroke: var(--color-border-status-info-q9np44, #0073bb);
+  fill: var(--color-background-status-info-pgxhez, #f1faff);
+  stroke-width: 0.6px;
+}
+
+
+
+.new-look-graph .edge-label .label {
+  fill: var(--color-text-form-secondary-rh78tu, #687078);
+  font-family: Amazon Ember, Arial, Roboto, Arial, sans-serif;
+}
+
+/* centering the shape text */
+@-moz-document url-prefix() {
+  .new-look-graph .shape + text,
+  .new-look-graph .edge-label text {
+    transform: translateY(3.5px);
+  }
+}
+
+.new-look-graph .edge path {
+  marker-end: url(#large-arrowhead) !important;
+}
+
+.new-look-graph .edge.selected path{
+  stroke: var(--color-border-status-info-q9np44, #0073bb);
+  stroke-width: 1.1px;
+}
+
+.new-look-graph .edge.dragging-over path, .new-look-graph  g.dragging-over .starting-connection {
+  stroke: #5C86FF;
+  stroke-width: 2px;
+}
+
+.new-look-graph .edge.dragging-over path, .new-look-graph .dragging-over path.starting-connection {
+  marker-end: url(#large-highlighted-arrowhead) !important;
+}
+
+.new-look-graph .edge.dragging-over .edge-label text {
+  fill: #5C86FF;
+}
+
+#large-highlighted-arrowhead {
+  fill: #5C86FF;
+}
+
+#large-highlighted-arrowhead path {
+  stroke: none;
+}
+
+.new-look-graph .edge.drop-not-supported path, g.drop-not-supported .starting-connection {
+  stroke: red;
+}
+
+.new-look-graph .edge.drop-not-supported .edge-label text {
+  fill: red;
+}
+
+.new-look-graph .edge.drop-not-supported path {
+  marker-end: url(#large-error-arrowhead) !important;
+}
+
+#large-error-arrowhead {
+  fill: red;
+}
+
+.node-container * &gt; .icon  {
+  &gt; rect {
+    fill: #fafafa;
+  }
+  &gt; line {
+    stroke: #d5dbdb;
+  }
+}
+
+
+.node.Placeholder.dragging-over rect {
+  stroke: var(--color-border-status-info-q9np44, #0073bb);
+  fill: var(--color-background-status-info-pgxhez, #f1faff);
+  stroke-width: 2px;
+}
+
+.node.Placeholder.dragging-over .label {
+  fill: var(--color-text-status-info-aq7yd6, #0073bb);
+}
+
+g.Placeholder rect {
+  stroke-dasharray: 5 4;
+  stroke: var(--color-border-dropdown-item-hover-gqjku2, #879596);
+  fill: #ffffff;
+  stroke-width: 1px;
+}
+
+g.Placeholder .label {
+  font-style: italic;
+  fill: var(--color-text-input-placeholder-epedqe, #687078);
+}
+
+.node.Placeholder.drop-not-supported rect {
+  stroke: red;
+}
+
+.node.Placeholder.drop-not-supported .label {
+  fill: red;
+}
+</style><style>.line2 { font-size: 14px }</style></svg>
